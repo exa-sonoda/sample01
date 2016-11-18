@@ -1,8 +1,6 @@
 <?php
 $accessToken = getenv('LINE_CHANNEL_ACCESS_TOKEN');
 
-//セッションの開始（一番最初に記述）
-session_start();
 
 //ユーザーからのメッセージ取得
 $json_string = file_get_contents('php://input');
@@ -19,6 +17,8 @@ if($type != "text"){
 	exit;
 }
 
+//セッションの開始（一番最初に記述）
+session_start();
 //返信データ作成
 if ($_SESSION['yes'] == '01' && $text == 'はい') {
 
@@ -45,6 +45,8 @@ if ($_SESSION['yes'] == '01' && $text == 'はい') {
   ];
 }
 else if ($text == 'はい') {
+//セッションの開始（一番最初に記述）
+session_start();
 //セッション[yes]にデータを保存する
 $_SESSION['yes'] = '01';
 
@@ -81,6 +83,8 @@ $_SESSION['yes'] = '01';
     ]
   ];
 } else if ($text == 'いいえ') {
+//セッションの開始（一番最初に記述）
+session_start();
 //まずグローバル変数を初期化
 $_SESSION = array();
 //セッションを破壊
