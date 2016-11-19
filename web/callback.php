@@ -12,8 +12,7 @@ $text = $jsonObj->{"events"}[0]->{"message"}->{"text"};
 //ReplyToken取得
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 
-
-else if ($text == 'Q1:はい' || $text == 'Q1:いいえ') {
+if ($text == 'Q1:はい' || $text == 'Q1:いいえ') {
   $response_format_text = [
     "type" => "template",
     "altText" => "Q2:物事を客観的に考えるタイプ？（はい／いいえ）",
