@@ -53,12 +53,7 @@ if ($text == 'はい') {
   ];
 } else if ($text == 'いいえ') {
   $response_format_text = [
-    "type" => "template",
-    "altText" => "言葉でお願いします！",
-    "template" => [
-      "type" => "text",
-      "text" => "言葉でお願いします！"
-      ]
+    'contentType' => 1, "toType" => 1, "text" => "言葉でお願いします！"
   ];
 } else if ($text == '違うやつお願い') {
   $response_format_text = [
