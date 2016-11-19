@@ -12,10 +12,6 @@ $text = $jsonObj->{"events"}[0]->{"message"}->{"text"};
 //ReplyToken取得
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 
-//メッセージ以外のときは何も返さず終了
-if($type != "text"){
-  exit;
-}
 
 else if ($text == 'Q1:はい' || $text == 'Q1:いいえ') {
   $response_format_text = [
@@ -23,7 +19,7 @@ else if ($text == 'Q1:はい' || $text == 'Q1:いいえ') {
     "altText" => "Q2:物事を客観的に考えるタイプ？（はい／いいえ）",
     "template" => [
         "type" => "confirm",
-        "text" => "Q2:\\n物事を客観的に考えるタイプ？",
+        "text" => "Q2:\n物事を客観的に考えるタイプ？",
         "actions" => [
             [
               "type" => "message",
@@ -45,7 +41,7 @@ else if ($text == 'Q2:はい' || $text == 'Q2:いいえ') {
     "altText" => "Q3:机とか本棚は整理整頓されている方が好き？（はい／いいえ）",
     "template" => [
         "type" => "confirm",
-        "text" => "Q3:\\n机とか本棚は整理整頓されている方が好き？",
+        "text" => "Q3:\n机とか本棚は整理整頓されている方が好き？",
         "actions" => [
             [
               "type" => "message",
@@ -67,7 +63,7 @@ else if ($text == 'Q3:はい' || $text == 'Q3:いいえ') {
     "altText" => "Q4:新しいグループに早く馴染める方？（はい／いいえ）",
     "template" => [
         "type" => "confirm",
-        "text" => "Q4:\\n新しいグループに早く馴染める方？",
+        "text" => "Q4:\n新しいグループに早く馴染める方？",
         "actions" => [
             [
               "type" => "message",
@@ -90,7 +86,7 @@ else if ($text == 'Q4:はい' || $text == 'Q4:いいえ') {
 "Q5:ひとつひとつ物事を終わらせてから次の事をするタイプ？（はい／いいえ）",
     "template" => [
         "type" => "confirm",
-        "text" => "Q5:\\nひとつひとつ物事を終わらせてから次の事をするタイプ？",
+        "text" => "Q5:\nひとつひとつ物事を終わらせてから次の事をするタイプ？",
         "actions" => [
             [
               "type" => "message",
@@ -112,7 +108,7 @@ else if ($text == 'Q5:はい' || $text == 'Q5:いいえ') {
     "altText" => "Q6:休みの日は友達や同僚と過ごすことが多い？（はい／いいえ）",
     "template" => [
         "type" => "confirm",
-        "text" => "Q6:\\n休みの日は友達や同僚と過ごすことが多い？",
+        "text" => "Q6:\n休みの日は友達や同僚と過ごすことが多い？",
         "actions" => [
             [
               "type" => "message",
@@ -134,7 +130,7 @@ else if ($text == 'Q6:はい' || $text == 'Q6:いいえ') {
     "altText" => "Q7:きちんと段階を踏んで話すタイプ？（はい／いいえ）",
     "template" => [
         "type" => "confirm",
-        "text" => "Q7:\\nきちんと段階を踏んで話すタイプ？",
+        "text" => "Q7:\nきちんと段階を踏んで話すタイプ？",
         "actions" => [
             [
               "type" => "message",
@@ -156,7 +152,7 @@ else if ($text == 'Q7:はい' || $text == 'Q7:いいえ') {
     "altText" => "Q8:他人の悩みに共感しやすい？（はい／いいえ）",
     "template" => [
         "type" => "confirm",
-        "text" => "Q8:\\n他人の悩みに共感しやすい？",
+        "text" => "Q8:\n他人の悩みに共感しやすい？",
         "actions" => [
             [
               "type" => "message",
@@ -178,7 +174,7 @@ else if ($text == 'Q8:はい' || $text == 'Q8:いいえ') {
     "altText" => "Q9:物事は基本的に白黒はっきりつけたい派？（はい／いいえ）",
     "template" => [
         "type" => "confirm",
-        "text" => "Q9:\\n物事は基本的に白黒はっきりつけたい派？",
+        "text" => "Q9:\n物事は基本的に白黒はっきりつけたい派？",
         "actions" => [
             [
               "type" => "message",
@@ -200,7 +196,7 @@ else if ($text == 'Q9:はい' || $text == 'Q9:いいえ') {
     "altText" => "Q10:何か保険で困っていることってある？（自由入力）",
     "template" => [
         "type" => "confirm",
-        "text" => "Q10:\\n何か保険で困っていることってある？（自由入力）",
+        "text" => "Q10:\n何か保険で困っていることってある？（自由入力）",
         "actions" => [
             [
               "type" => "message",
@@ -220,7 +216,7 @@ else if ($text == 'Q10:はい' || $text == 'Q10:いいえ') {
 
   $response_format_text = [
     "type" => "template",
-    "altText" => "君にピッタリのマイライフプランアドバイザーはこの人たちだよ♪\\n候補を３人ご案内しています。",
+    "altText" => "君にピッタリのマイライフプランアドバイザーはこの人たちだよ♪\n候補を３人ご案内しています。",
     "template" => [
       "type" => "carousel",
       "columns" => [
@@ -273,8 +269,8 @@ else if ($text == 'Q10:はい' || $text == 'Q10:いいえ') {
     "altText" => "Q1:人付き合いが好き？（はい／いいえ）",
     "template" => [
         "type" => "confirm",
-        "text" => "こんにちは！！\\n僕ライト！くんです。ライト！\\nあなたにぴったりの保険のエキス
-パートを紹介するよ♪\\nこれから10個の質問をするから答えてね！♪\\n\\nQ1:\\n人付き合いが好き？",
+        "text" => "こんにちは！！\n僕ライト！くんです。ライト！\nあなたにぴったりの保険のエキス
+パートを紹介するよ♪\nこれから10個の質問をするから答えてね！♪\n\nQ1:\n人付き合いが好き？",
         "actions" => [
             [
               "type" => "message",
