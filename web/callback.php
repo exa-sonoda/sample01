@@ -19,7 +19,7 @@ if($type != "text"){
 
 //返信データ作成
 if ($text == 'はい') {
-  $response_format_text = [
+  $response_format_text = {
     "type" => "template",
     "altText" => "こちらの〇〇はいかがですか？",
     "template" => [
@@ -50,7 +50,7 @@ if ($text == 'はい') {
           ]
       ]
     ]
-  ],[
+  },{
     "type" => "template",
     "altText" => "こちらの〇〇はいかがですか？",
     "template" => [
@@ -81,7 +81,7 @@ if ($text == 'はい') {
           ]
       ]
     ]
-  ];
+  };
 } else if ($text == 'いいえ') {
   exit;
 } else if ($text == '違うやつお願い') {
