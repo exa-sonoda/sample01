@@ -14,276 +14,114 @@ $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 
 //メッセージ以外のときは何も返さず終了
 if($type != "text"){
-  $response_format_text = [
-    "type" => "template",
-    "altText" => "言葉でお願いします！",
-    "template" => [
-      "type" => "text",
-      "text" => "言葉でお願いします！"
-      ]
-  ];
+	exit;
 }
 
-else if ($text == 'Q1:はい' || $text == 'Q1:いいえ') {
+//返信データ作成
+if ($text == 'はい') {
   $response_format_text = [
     "type" => "template",
-    "altText" => "Q2:物事を客観的に考えるタイプ？（はい／いいえ）",
+    "altText" => "こちらの〇〇はいかがですか？",
     "template" => [
-        "type" => "confirm",
-        "text" => "Q2:\\n物事を客観的に考えるタイプ？",
-        "actions" => [
-            [
-              "type" => "message",
-              "label" => "はい",
-              "text" => "Q2:はい"
-            ],
-            [
-              "type" => "message",
-              "label" => "いいえ",
-              "text" => "Q2:いいえ"
-            ]
-        ]
-    ]
-  ];
-}
-else if ($text == 'Q2:はい' || $text == 'Q2:いいえ') {
-  $response_format_text = [
-    "type" => "template",
-    "altText" => "Q3:机とか本棚は整理整頓されている方が好き？（はい／いいえ）",
-    "template" => [
-        "type" => "confirm",
-        "text" => "Q3:\\n机とか本棚は整理整頓されている方が好き？",
-        "actions" => [
-            [
-              "type" => "message",
-              "label" => "はい",
-              "text" => "Q3:はい"
-            ],
-            [
-              "type" => "message",
-              "label" => "いいえ",
-              "text" => "Q3:いいえ"
-            ]
-        ]
-    ]
-  ];
-}
-else if ($text == 'Q3:はい' || $text == 'Q3:いいえ') {
-  $response_format_text = [
-    "type" => "template",
-    "altText" => "Q4:新しいグループに早く馴染める方？（はい／いいえ）",
-    "template" => [
-        "type" => "confirm",
-        "text" => "Q4:\\n新しいグループに早く馴染める方？",
-        "actions" => [
-            [
-              "type" => "message",
-              "label" => "はい",
-              "text" => "Q4:はい"
-            ],
-            [
-              "type" => "message",
-              "label" => "いいえ",
-              "text" => "Q4:いいえ"
-            ]
-        ]
-    ]
-  ];
-}
-else if ($text == 'Q4:はい' || $text == 'Q4:いいえ') {
-  $response_format_text = [
-    "type" => "template",
-    "altText" => 
-"Q5:ひとつひとつ物事を終わらせてから次の事をするタイプ？（はい／いいえ）",
-    "template" => [
-        "type" => "confirm",
-        "text" => "Q5:\\nひとつひとつ物事を終わらせてから次の事をするタイプ？",
-        "actions" => [
-            [
-              "type" => "message",
-              "label" => "はい",
-              "text" => "Q5:はい"
-            ],
-            [
-              "type" => "message",
-              "label" => "いいえ",
-              "text" => "Q5:いいえ"
-            ]
-        ]
-    ]
-  ];
-}
-else if ($text == 'Q5:はい' || $text == 'Q5:いいえ') {
-  $response_format_text = [
-    "type" => "template",
-    "altText" => "Q6:休みの日は友達や同僚と過ごすことが多い？（はい／いいえ）",
-    "template" => [
-        "type" => "confirm",
-        "text" => "Q6:\\n休みの日は友達や同僚と過ごすことが多い？",
-        "actions" => [
-            [
-              "type" => "message",
-              "label" => "はい",
-              "text" => "Q6:はい"
-            ],
-            [
-              "type" => "message",
-              "label" => "いいえ",
-              "text" => "Q6:いいえ"
-            ]
-        ]
-    ]
-  ];
-}
-else if ($text == 'Q6:はい' || $text == 'Q6:いいえ') {
-  $response_format_text = [
-    "type" => "template",
-    "altText" => "Q7:きちんと段階を踏んで話すタイプ？（はい／いいえ）",
-    "template" => [
-        "type" => "confirm",
-        "text" => "Q7:\\nきちんと段階を踏んで話すタイプ？",
-        "actions" => [
-            [
-              "type" => "message",
-              "label" => "はい",
-              "text" => "Q7:はい"
-            ],
-            [
-              "type" => "message",
-              "label" => "いいえ",
-              "text" => "Q7:いいえ"
-            ]
-        ]
-    ]
-  ];
-}
-else if ($text == 'Q7:はい' || $text == 'Q7:いいえ') {
-  $response_format_text = [
-    "type" => "template",
-    "altText" => "Q8:他人の悩みに共感しやすい？（はい／いいえ）",
-    "template" => [
-        "type" => "confirm",
-        "text" => "Q8:\\n他人の悩みに共感しやすい？",
-        "actions" => [
-            [
-              "type" => "message",
-              "label" => "はい",
-              "text" => "Q8:はい"
-            ],
-            [
-              "type" => "message",
-              "label" => "いいえ",
-              "text" => "Q8:いいえ"
-            ]
-        ]
-    ]
-  ];
-}
-else if ($text == 'Q8:はい' || $text == 'Q8:いいえ') {
-  $response_format_text = [
-    "type" => "template",
-    "altText" => "Q9:物事は基本的に白黒はっきりつけたい派？（はい／いいえ）",
-    "template" => [
-        "type" => "confirm",
-        "text" => "Q9:\\n物事は基本的に白黒はっきりつけたい派？",
-        "actions" => [
-            [
-              "type" => "message",
-              "label" => "はい",
-              "text" => "Q9:はい"
-            ],
-            [
-              "type" => "message",
-              "label" => "いいえ",
-              "text" => "Q9:いいえ"
-            ]
-        ]
-    ]
-  ];
-}
-else if ($text == 'Q9:はい' || $text == 'Q9:いいえ') {
-  $response_format_text = [
-    "type" => "template",
-    "altText" => "Q10:何か保険で困っていることってある？（自由入力）",
-    "template" => [
-        "type" => "confirm",
-        "text" => "Q10:\\n何か保険で困っていることってある？（自由入力）",
-        "actions" => [
-            [
-              "type" => "message",
-              "label" => "はい",
-              "text" => "Q10:はい"
-            ],
-            [
-              "type" => "message",
-              "label" => "いいえ",
-              "text" => "Q10:いいえ"
-            ]
-        ]
-    ]
-  ];
-}
-else if ($text == 'Q10:はい' || $text == 'Q10:いいえ') {
-
-  $response_format_text = [
-    "type" => "template",
-    "altText" => "質問終了！答えてくれてありがとう！",
-    "template" => [
-      "type" => "text",
-      "text" => "質問終了！答えてくれてありがとう！"
+      "type" => "buttons",
+      "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
+      "title" => "○○レストラン",
+      "text" => "お探しのレストランはこれですね",
+      "actions" => [
+          [
+            "type" => "postback",
+            "label" => "予約する",
+            "data" => "action=buy&itemid=123"
+          ],
+          [
+            "type" => "postback",
+            "label" => "電話する",
+            "data" => "action=pcall&itemid=123"
+          ],
+          [
+            "type" => "uri",
+            "label" => "詳しく見る",
+            "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
+          ],
+          [
+            "type" => "message",
+            "label" => "違うやつ",
+            "text" => "違うやつお願い"
+          ]
       ]
     ]
   ];
+} else if ($text == 'いいえ') {
+  exit;
+} else if ($text == '違うやつお願い') {
   $response_format_text = [
     "type" => "template",
-    "altText" => "君にピッタリのマイライフプランアドバイザーはこの人たちだよ♪",
-    "template" => [
-      "type" => "text",
-      "text" => "君にピッタリのマイライフプランアドバイザーはこの人たちだよ♪"
-      ]
-    ]
-  ];
-  $response_format_text = [
-    "type" => "template",
-    "altText" => "候補を３人ご案内しています。",
+    "altText" => "候補を３つご案内しています。",
     "template" => [
       "type" => "carousel",
       "columns" => [
           [
-            "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . 
-"/planner01.png",
-            "title" => "竹岩 祐子",
-            "text" => "この人にしますか？",
+            "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img2-1.jpg",
+            "title" => "●●レストラン",
+            "text" => "こちらにしますか？",
             "actions" => [
               [
+                  "type" => "postback",
+                  "label" => "予約する",
+                  "data" => "action=rsv&itemid=111"
+              ],
+              [
+                  "type" => "postback",
+                  "label" => "電話する",
+                  "data" => "action=pcall&itemid=111"
+              ],
+              [
                   "type" => "uri",
-                  "label" => "相談する",
+                  "label" => "詳しく見る（ブラウザ起動）",
                   "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
               ]
             ]
           ],
           [
-            "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . 
-"/planner02.png",
-            "title" => "福田 泰三",
-            "text" => "この人にしますか？",
+            "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img2-2.jpg",
+            "title" => "▲▲レストラン",
+            "text" => "それともこちら？（２つ目）",
             "actions" => [
               [
+                  "type" => "postback",
+                  "label" => "予約する",
+                  "data" => "action=rsv&itemid=222"
+              ],
+              [
+                  "type" => "postback",
+                  "label" => "電話する",
+                  "data" => "action=pcall&itemid=222"
+              ],
+              [
                   "type" => "uri",
-                  "label" => "相談する",
+                  "label" => "詳しく見る（ブラウザ起動）",
                   "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
               ]
             ]
           ],
           [
-            "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . 
-"/planner03.png",
-            "title" => "保井 花子",
-            "text" => "この人にしますか？",
+            "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img2-3.jpg",
+            "title" => "■■レストラン",
+            "text" => "はたまたこちら？（３つ目）",
             "actions" => [
               [
+                  "type" => "postback",
+                  "label" => "予約する",
+                  "data" => "action=rsv&itemid=333"
+              ],
+              [
+                  "type" => "postback",
+                  "label" => "電話する",
+                  "data" => "action=pcall&itemid=333"
+              ],
+              [
                   "type" => "uri",
-                  "label" => "相談する",
+                  "label" => "詳しく見る（ブラウザ起動）",
                   "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
               ]
             ]
@@ -292,45 +130,22 @@ else if ($text == 'Q10:はい' || $text == 'Q10:いいえ') {
     ]
   ];
 } else {
-
   $response_format_text = [
     "type" => "template",
-    "altText" => 
-"こんにちは！！僕ライト！くんです。ライト！あなたにぴったりの保険のエキスパートを紹
-介するよ♪",
-    "template" => [
-      "type" => "text",
-      "text" => 
-"こんにちは！！\\n僕ライト！くんです。ライト！\\nあなたにぴったりの保険のエキス
-パートを紹介するよ♪"
-      ]
-    ]
-  ];
-  $response_format_text = [
-    "type" => "template",
-    "altText" => "これから10個の質問をするから答えてね！♪",
-    "template" => [
-      "type" => "text",
-      "text" => "これから10個の質問をするから答えてね！♪"
-      ]
-    ]
-  ];
-  $response_format_text = [
-    "type" => "template",
-    "altText" => "Q1:人付き合いが好き？（はい／いいえ）",
+    "altText" => "こんにちわ 何かご用ですか？（はい／いいえ）",
     "template" => [
         "type" => "confirm",
-        "text" => "Q1:\\n人付き合いが好き？",
+        "text" => "こんにちわ 何かご用ですか？",
         "actions" => [
             [
               "type" => "message",
               "label" => "はい",
-              "text" => "Q1:はい"
+              "text" => "はい"
             ],
             [
               "type" => "message",
               "label" => "いいえ",
-              "text" => "Q1:いいえ"
+              "text" => "いいえ"
             ]
         ]
     ]
